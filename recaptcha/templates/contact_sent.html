@@ -6,7 +6,11 @@
         <title>Contact Sent</title>
     </head>
     <body>
+        {% if is_robot %}
+        <h1>Hi, you are robot</h2>
+        {% else %}
         <h1>Hi {{ name }}</h1>
+        {% endif %}
         <p>You will redirected into homepage</p>
 
 
