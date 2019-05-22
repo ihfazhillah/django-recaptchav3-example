@@ -7,10 +7,29 @@
     </head>
     <body>
         <h1>Simple Recaptcha v3 Demo</h1>
-        <form action="{% url 'contact' %}" method="post" accept-charset="utf-8">
+        <form id="contactform" action="{% url 'contact' %}" method="post" accept-charset="utf-8">
             {% csrf_token %}
             <input id="" type="text" name="name">
+            <input type="hidden" name="g-recaptcha-response" id='recaptcha'>
             <input type="submit" value="Submit">
         </form>
+
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+        <script src="https://www.google.com/recaptcha/api.js?render=reCAPTCHA_site_key"></script>
+        <script>
+          grecaptcha.ready(function() {
+              $('#contactform').submit(function(e){
+                  var form = this;
+                  e.preventDefault()
+                  grecaptcha.execute('reCAPTCHA_site_key', {action: 'contactform'}).then(function(token) {
+                      $('#recaptcha').val(token)
+                      form.submit()
+                  });
+              })
+
+          });
+         </script>
     </body>
 </html>
