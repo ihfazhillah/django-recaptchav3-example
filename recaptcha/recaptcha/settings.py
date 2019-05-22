@@ -119,3 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+
+RECAPTCHA_SITE_KEY = "6Le60KQUAAAAAHgO7i5xBOQCLb3rbb9y9s02EqeW"
+RECAPTCHA_SECRET_KEY = "6Le60KQUAAAAAOANCQE8eVZNvL-VdP13lyEujLsq"
