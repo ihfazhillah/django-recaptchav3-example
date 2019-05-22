@@ -21,5 +21,5 @@ from recaptcha_example.views import index, contact
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', index, name='index'),
-    path('/contact', contact, name='contact')
+    path('contact', contact, name='contact')
 ]
